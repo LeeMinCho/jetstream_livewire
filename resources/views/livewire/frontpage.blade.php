@@ -26,47 +26,38 @@
                     <li class="cursor-pointer px-4 py-2 hover:underline">Login</li>
                 </a>
             </ul>
+            @foreach ($topNavLinks as $item)
+            <ul class="hidden sm:block sm:text-left text-gray-200 text-xs">
+                <a href="{{ url('/' . $item->slug) }}">
+                    <li class="cursor-pointer px-4 py-2 hover:underline">{{ $item->label }}</li>
+                </a>
+            </ul>
+            @endforeach
         </div>
     </nav>
     <div class="sm:flex sm:min-h-screen">
         <aside class="bg-gray-900 text-gray-700 divide-y divide-gray-700 divide-dashed sm:w-4/12 md:w-3/12 lg:w-2/12">
             {{-- Desktop Web View --}}
             <ul class="hidden text-gray-200 text-xs sm:block sm:text-left">
-                <a href="{{ url('/home') }}">
+                @foreach ($sidebarLinks as $item)
+                <a href="{{ url('/' . $item->slug) }}">
                     <li class="cursor-pointer px-4 py-2 hover:underline">
-                        Home
+                        {{ $item->label }}
                     </li>
                 </a>
-                <a href="{{ url('/about') }}">
-                    <li class="cursor-pointer px-4 py-2 hover:underline">
-                        About
-                    </li>
-                </a>
-                <a href="{{ url('/contact') }}">
-                    <li class="cursor-pointer px-4 py-2 hover:underline">
-                        Contact
-                    </li>
-                </a>
+                @endforeach
             </ul>
 
             {{-- Mobile Web View --}}
             <div :class="show ? 'block' : 'hidden'" class="pb-3 divide-y divide-gray-800 block sm:hidden">
                 <ul class="text-gray-200">
-                    <a href="{{ url('/home') }}">
+                    @foreach ($sidebarLinks as $item)
+                    <a href="{{ url('/' . $item->slug) }}">
                         <li class="cursor-pointer px-4 py-2 hover:underline">
-                            Home
+                            {{ $item->label }}
                         </li>
                     </a>
-                    <a href="{{ url('/about') }}">
-                        <li class="cursor-pointer px-4 py-2 hover:underline">
-                            About
-                        </li>
-                    </a>
-                    <a href="{{ url('/contact') }}">
-                        <li class="cursor-pointer px-4 py-2 hover:underline">
-                            Contact
-                        </li>
-                    </a>
+                    @endforeach
                 </ul>
 
                 <ul class="text-gray-200 text-xs">

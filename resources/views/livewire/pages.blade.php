@@ -135,7 +135,7 @@
         </x-slot>
     </x-jet-dialog-modal>
 
-    <!-- Delete User Confirmation Modal -->
+    <!-- Delete Page Confirmation Modal -->
     <x-jet-dialog-modal wire:model="modalConfirmDeleteVisible">
         <x-slot name="title">
             {{ __('Delete Page') }}
